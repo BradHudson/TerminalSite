@@ -9,13 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323:wght@400&display=swap" rel="stylesheet">
-    <script type="importmap">
-    {
-        "imports": {
-            "@blotoutio/edgetag-sdk-js": "https://unpkg.com/@blotoutio/edgetag-sdk-js@latest"
-        }
-    }
-    </script>
 </head>
 <body>
     <div class="terminal-container">
@@ -41,10 +34,10 @@
         </div>
     </div>
 
-    <script type="module">
-        import { init } from '@blotoutio/edgetag-sdk-js';
-        
-        init({
+    <script>
+        window.edgetag=window.edgetag||function(){(edgetag.stubs=edgetag.stubs||[]).push(arguments)};
+
+        edgetag('init', {
             edgeURL: 'https://tcisc.bradhudson.org',
             disableConsentCheck: true
         });
@@ -63,6 +56,7 @@
         // Event with payload that will just be sent to Meta
         edgetag('tag', 'AddToCart', { value: 10.0, currency: 'USD' }, { facebook: true });
     </script>
+    <script async type="text/javascript" src="https://tcisc.bradhudson.org/load"></script>
     <script src="script.js"></script>
 </body>
 </html> 
