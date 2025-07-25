@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@blotoutio/edgetag-sdk-js": "^1.22.2"
+  }
+}

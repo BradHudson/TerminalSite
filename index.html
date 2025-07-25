@@ -33,6 +33,28 @@
         </div>
     </div>
 
+    <script type="module">
+        import { init } from 'https://unpkg.com/@blotoutio/edgetag-sdk-js@latest/dist/index.js';
+        
+        init({
+            edgeURL: 'https://tcisc.bradhudson.org',
+            disableConsentCheck: true
+        });
+
+        // Send user events on page load
+        edgetag('user', 'email', 'brad.hudson+testingblotout@mailchimp.com');
+        edgetag('user', 'city', 'atlanta');
+
+        // Send tracking events
+        // Simple event
+        edgetag('tag', 'PageView');
+
+        // Event with payload
+        edgetag('tag', 'AddToCart', { value: 10.0, currency: 'USD' });
+
+        // Event with payload that will just be sent to Meta
+        edgetag('tag', 'AddToCart', { value: 10.0, currency: 'USD' }, { facebook: true });
+    </script>
     <script src="script.js"></script>
 </body>
 </html> 
